@@ -9,27 +9,79 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.currencyapp"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", '"https://hiring.revolut.codes/api/android/"')
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$libraryVersion.kotlin"
+    implementation "androidx.appcompat:appcompat:$libraryVersion.appcompat"
+    implementation "androidx.core:core-ktx:$libraryVersion.ktx"
+    implementation "androidx.constraintlayout:constraintlayout:$libraryVersion.constraintlayout"
+    implementation "com.google.android.material:material:$libraryVersion.material"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$libraryVersion.lifecycle"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$libraryVersion.lifecycle"
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$libraryVersion.lifecycle"
+
+    // Koin
+    implementation "org.koin:koin-android:$libraryVersion.koin"
+    implementation "org.koin:koin-androidx-viewmodel:$libraryVersion.koin"
+    implementation "org.koin:koin-core:$libraryVersion.koin"
+
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$libraryVersion.recyclerview"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$libraryVersion.picasso"
+
+    // Retrofit - HTTP - REST
+    implementation "com.squareup.retrofit2:retrofit:$libraryVersion.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$libraryVersion.retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$libraryVersion.retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$libraryVersion.retrofit"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$libraryVersion.okHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$libraryVersion.okHttp"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$libraryVersion.coroutines"
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:$libraryVersion.lottie"
+
+    //Test
+    testImplementation "junit:junit:$libraryVersion.junit"
+    testImplementation "androidx.arch.core:core-testing:$libraryVersion.archcore"
+    testImplementation "org.mockito:mockito-core:$libraryVersion.mockito"
+    testImplementation "org.mockito:mockito-inline:$libraryVersion.mockitoInline"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$libraryVersion.mockitoKotlin"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$libraryVersion.coroutinesTest"
 }
