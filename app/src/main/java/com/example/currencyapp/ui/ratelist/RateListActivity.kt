@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,6 @@ import com.example.currencyapp.R
 import com.example.currencyapp.commons.Status
 import com.example.currencyapp.ui.ratelist.adapter.RateItemUIModel
 import com.example.currencyapp.ui.ratelist.adapter.RateListAdapter
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -63,11 +63,17 @@ class RateListActivity : AppCompatActivity() {
     }
 
     private fun showRatesList(response: List<RateItemUIModel>) {
+        hideErrorMessage()
         adapter.showRateList(response)
     }
 
+    private fun hideErrorMessage() {
+        text_view_error.isVisible = false
+    }
+
     private fun showErrorMessage(errorMessage: String) {
-        Snackbar.make(constraintLayout, errorMessage, Snackbar.LENGTH_LONG).show()
+        text_view_error.text = errorMessage
+        text_view_error.isVisible = true
     }
 
     companion object {

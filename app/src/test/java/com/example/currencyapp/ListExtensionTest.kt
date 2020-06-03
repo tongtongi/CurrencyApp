@@ -10,7 +10,7 @@ import java.math.BigDecimal
 class ListExtensionTest {
 
     @Test
-    fun `calculateCurrencyValues() should multiply each value (except the first one) with the given multiplier`() {
+    fun `should multiply each value (except the first one) with the given multiplier`() {
         val multiplier = BigDecimal("2")
 
         val list = listOf(
@@ -33,7 +33,7 @@ class ListExtensionTest {
     }
 
     @Test
-    fun `updateFirstElement() should change the first element of the list with the given element`() {
+    fun `should change the first element of the list with the given element`() {
         val newBaseItem = RateItemUIModel(currency = "EUR", value = BigDecimal("3.49"))
 
         val list = listOf(

@@ -58,7 +58,7 @@ class RateListViewModelTest {
     }
 
     @Test
-    fun `fetchData() should set status to ERROR when request fails`() {
+    fun `should set status to ERROR when request fails`() {
         // GIVEN
         val expectedError = R.string.something_went_wrong_error
         whenever(runBlocking { (useCase.execute(any())) }).thenReturn(Result.Failure(ErrorModel.DEFAULT))
@@ -74,8 +74,8 @@ class RateListViewModelTest {
     }
 
     @Test
-    fun `fetchData() should set status to SUCCESS when request is successful`() {
-        // Expected result is in alphabetic order
+    fun `should set status to SUCCESS when request is successful`() {
+        // Expected result is in alphabetic order - except the first item since it's the base one.
         val expectedResult = listOf(
             RateItemUIModel(currency = "EUR", value = BigDecimal("1")),
             RateItemUIModel(currency = "AUD", value = BigDecimal("1.61")),
@@ -90,7 +90,7 @@ class RateListViewModelTest {
     }
 
     @Test
-    fun `onSelectedItemChanged() should update rate list according to newly selected item`() {
+    fun `should update rate list according to newly selected item`() {
         val selectedItem = RateItemUIModel(currency = "CAD", value = BigDecimal("1.50"))
         whenever(runBlocking { useCase.execute(any()) }).thenReturn(mockResponse())
         viewModel.fetchData() // Now we have the initial response
@@ -117,7 +117,7 @@ class RateListViewModelTest {
     }
 
     @Test
-    fun `onSelectedItemValueChanged() should update the currency values with the given multiplier`() {
+    fun `should update the currency values with the given multiplier`() {
         val baseRateItem = RateItemUIModel(currency = "EUR", value = BigDecimal("1"))
 
         whenever(runBlocking { useCase.execute(any()) }).thenReturn(mockResponse())

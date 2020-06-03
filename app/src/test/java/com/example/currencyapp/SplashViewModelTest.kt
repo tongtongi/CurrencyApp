@@ -25,7 +25,7 @@ class SplashViewModelTest {
     }
 
     @Test
-    fun `onSplashAnimationEnd() should navigate to rate list screen when splash animation ends`() {
+    fun `should navigate to rate list screen when splash animation ends`() {
         viewModel.onSplashAnimationEnd()
 
         assertEquals(

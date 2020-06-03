@@ -39,6 +39,6 @@
     <string name="usd_currency">US Dollar</string>
     <string name="zar_currency">South African Rand</string>
 
-    <string name="something_went_wrong_error">Uupps, something went wrong 😢</string>
+    <string name="something_went_wrong_error">Uupps, something went wrong</string>
 
 </resources>

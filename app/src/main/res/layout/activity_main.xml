@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.ratelist.RateListActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginStart="@dimen/default_margin_xxl"
@@ -28,5 +28,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:listitem="@layout/item_currency" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_error"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
